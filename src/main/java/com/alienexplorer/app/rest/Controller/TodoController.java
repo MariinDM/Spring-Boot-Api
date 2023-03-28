@@ -13,35 +13,35 @@ public class TodoController {
     private TodoRepository todoRepository;
 
     @GetMapping(value = "/")
-    public String holaMundo(){
+    public String holaMundo() {
         return "HOLA MUNDO!!!";
     }
 
-    @GetMapping(value= "/tasks")
-    public List<Task> getTasks(){
+    @GetMapping(value = "/tasks")
+    public List<Task> getTasks() {
         return todoRepository.findAll();
     }
 
-    @PostMapping(value="/savetask")
-    public String saveTask(@RequestBody Task task){
+    @PostMapping(value = "/insert")
+    public String saveTask(@RequestBody Task task) {
         todoRepository.save(task);
-        return "Saved task";
+        return "Tarea guardada";
     }
 
-    @PutMapping(value="/update/{id}")
-    public String updateTask(@PathVariable long id, @RequestBody Task task){
+    @PutMapping(value = "/update/{id}")
+    public String updateTask(@PathVariable long id, @RequestBody Task task) {
         Task updatedTask = todoRepository.findById(id).get();
         updatedTask.setTitle(task.getTitle());
         updatedTask.setDescription(task.getDescription());
         todoRepository.save(updatedTask);
-        return "Updated Task";
+        return "Tarea actualizada";
     }
 
-    @DeleteMapping(value="delete/{id}")
-    public String deleteTask(@PathVariable long id){
+    @DeleteMapping(value = "delete/{id}")
+    public String deleteTask(@PathVariable long id) {
         Task deletedTask = todoRepository.findById(id).get();
         todoRepository.delete(deletedTask);
-        return "Deleted Task";
+        return "Tarea eliminada";
     }
 
 }

@@ -1,0 +1,4 @@
+com\alienexplorer\app\rest\Model\Task.class
+com\alienexplorer\app\rest\RestfulApiApplication.class
+com\alienexplorer\app\rest\Repository\TodoRepository.class
+com\alienexplorer\app\rest\Controller\TodoController.class
